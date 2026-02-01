@@ -66,15 +66,15 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public Customer delete(Integer id) {
-//
-//		// search
-//		if (cr.findById(id).isPresent()) {
-//			Customer temp = cr.findById(id).get();
-//			cr.deleteById(id);
-//			return temp;
-//		}
-//		return null;
-}
+
+		// search
+		if (cr.findById(id).isPresent()) {
+			Customer temp = cr.findById(id).get();
+			cr.deleteById(id);
+			return temp;
+		}
+		return null;
+	}
 
 	@Override
 	public void update(Customer customer, Integer id) {
