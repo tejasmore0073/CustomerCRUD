@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CustomerCrudApplication {
 
 	public static void main(String[] args) {
+		//yutdfyitdtdf
 		SpringApplication.run(CustomerCrudApplication.class, args);
 		
 	}
