@@ -14,6 +14,6 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 	
 	List<Customer>findByName(String name);
 	
-	Boolean existsByMobNo(String mobno);
+	Boolean existsByMobno(String mobno);
 	
 }
