@@ -18,57 +18,54 @@ import com.example.demo.model.Customer;
 import com.example.demo.service.CustomerService;
 
 @RestController
-@CrossOrigin(origins="*")
+//@CrossOrigin(origins = "http://localhost:5174")
 public class CustomerController {
-	
+
 	@Autowired
 	private CustomerService cs;
-	
+
 	@PostMapping("add")
 	public void add(@RequestBody Customer c) {
 		cs.add(c);
 	}
-	
+
 	@PostMapping("add all")
 	public void addAll(@RequestBody List<Customer> list) {
-		
+
 		cs.addAll(list);
-		
-		
+
 	}
-	
 
 	@GetMapping("display")
-	public List<Customer>display(){
+	public List<Customer> display() {
 		return cs.display();
 	}
-	
+
 	@DeleteMapping("delete/{id}")
 	public ResponseEntity<?> delete(@PathVariable Integer id) {
-		Customer temp=cs.delete(id);
-		if(temp==null) {
+		Customer temp = cs.delete(id);
+		if (temp == null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("ID Not Found");
 		}
 		return ResponseEntity.ok(temp);
 	}
-	
+
 	@PostMapping("search/{id}")
 	public ResponseEntity<?> search(@PathVariable Integer id) {
-		Customer temp=cs.search(id);
-		if(temp==null) {
+		Customer temp = cs.search(id);
+		if (temp == null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("ID Not Found");
 		}
 		return ResponseEntity.ok(temp);
 	}
-	
+
 	@PostMapping("search/mobno/{mobno}")
 	public ResponseEntity<?> searchMob(@PathVariable String mobno) {
-		Customer temp=cs.findMob(mobno);
-		if(temp==null) {
+		Customer temp = cs.findMob(mobno);
+		if (temp == null) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not Found");
 		}
 		return ResponseEntity.ok(temp);
 	}
-	
-	
+
 }

@@ -41,13 +41,13 @@ public class CustomerServiceImpl implements CustomerService {
 		
 		
 		
-		Integer id=customer.getId();
-		
-		if(cr.existsById(id))
-			throw new DuplicateID("ID Dupicate");
-		if(id<=0) {
-			throw new InvalidID("ID Must Be Positive");
-		}
+//		Integer id=customer.getId();
+//		
+//		if(cr.existsById(id))
+//			throw new DuplicateID("ID Dupicate");
+//		if(id<=0) {
+//			throw new InvalidID("ID Must Be Positive");
+//		}
 		
 		String name=customer.getName().trim();
 		List<Customer>list=cr.findByName(name);
